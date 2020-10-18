@@ -18,7 +18,7 @@ export const HotelCollectionContainer = () => {
   };
 
   const handleEdit = (id: string) => {
-    history.push(linkRoutes.editHotel(id));
+    // history.push(linkRoutes.editHotel(id));
   };
 
   const handleDelete = async (id: string) => {
