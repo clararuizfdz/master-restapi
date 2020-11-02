@@ -7,8 +7,19 @@ export  interface Character{
     gender: string;
     origin: string;    
     image: string;    
-    url: string;    
+    url: string;
+    comment: Comment;    
+};
+
+interface Comment {
+    idComment: string;
+    comment: string;
 }
+
+const createEmptyComment = () : Comment =>  ({
+    idComment: "",
+    comment: ""
+});
 
 export const createEmptyCharacter = () : Character => ({
     id: '',
@@ -20,4 +31,7 @@ export const createEmptyCharacter = () : Character => ({
     origin: '',  
     image: '',    
     url: '',   
-})
+    comment: createEmptyComment()
+});
+
+

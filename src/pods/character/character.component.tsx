@@ -35,6 +35,7 @@ export const CharacterComponent: React.FC<Props> = (props) => {
           <TextFieldComponent name="origin" label="Origin" />
           <TextFieldComponent name="image" label="Image" />
           <TextFieldComponent name="url" label="Url" />
+          <TextFieldComponent name="comment.comment" label="Comment" />
           <Button type="submit" variant="contained" color="primary">
             Save
           </Button>

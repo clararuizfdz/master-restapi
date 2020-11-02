@@ -17,3 +17,9 @@ export interface CharacterEntityApi {
   episode: string[];
   url: string;    
 }
+
+export interface CommentEntityApi {
+  id: string;
+  idComment: string;
+  comment: string;
+}

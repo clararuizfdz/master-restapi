@@ -1,0 +1,24 @@
+{
+  "comments": [
+    {
+      "id": "1",
+      "idComment": "1",
+      "comment": "Ey testing comments 4"
+    },
+    {
+      "id": 2,
+      "idComment": 2,
+      "comment": "I don't know anything about this character"
+    },
+    {
+      "id": 3,
+      "idComment": 3,
+      "comment": "testeando"
+    },
+    {
+      "id": 19,
+      "idComment": 19,
+      "comment": ""
+    }
+  ]
+}

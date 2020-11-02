@@ -1,7 +1,7 @@
 import React from 'react';
 import * as api from './api';
 import { useHistory, useParams } from 'react-router-dom';
-import { mapFromApiToVm } from './character.mapper';
+import { mapFromApiToVm, mapCommentFromVmToApi } from './character.mapper';
 import { createEmptyCharacter, Character } from './character.vm';
 import { CharacterComponent } from './character.component';
 import { Lookup } from 'common/models';
@@ -16,21 +16,19 @@ export const CharacterContainer: React.FC = (props) => {
 
     const handleLoadStatuses = async() =>{
         const apiStatuses = await api.getStatuses();
-        console.log("apiStatuses", apiStatuses);
         setStatuses(apiStatuses);
     }
 
     const handleLoadGenders = async() =>{
         const apiGenders = await api.getGenders();
-        console.log("apiGenders", apiGenders);
         setGenders(apiGenders);
     }
 
     const handleLoadCharacter = async() =>{
         const apiCharacter = await api.getCharacter(id);
-        setCharacter(mapFromApiToVm(apiCharacter))
+        const apiComment = await api.getComment(id);
+        setCharacter(mapFromApiToVm(apiCharacter, apiComment));
     }
-
 
     React.useEffect(() => {
         if(id){
@@ -41,7 +39,12 @@ export const CharacterContainer: React.FC = (props) => {
     }, []);
 
     const handleSave = async(character: Character) =>{
-
-    };
+        const success = await api.saveComment(mapCommentFromVmToApi(character));
+        if (success) {
+            history.goBack();
+          } else {
+            alert('Error on save comment');
+          }
+        };
     return <CharacterComponent character={character} statuses = {statuses} genders ={genders}  onSave = {handleSave} />
 }
